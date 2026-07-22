@@ -3,217 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Úrsula Varga | Ensaios com IA</title>
-<meta name="description" content="Úrsula Varga, modelo e especialista em ensaios com Inteligência Artificial. Acesse prompts, biblioteca e curso completo de IA.">
-<meta name="theme-color" content="#e8e6e2">
+<title>Úrsula Varga - Modelo & Especialista em Ensaios com IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Poppins:wght@500;600;700;800&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Montserrat:wght@600&family=Poppins:wght@700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#e9e7e2;
-    --red:#c8272a;
-    --red-dark:#a11d1f;
-    --brown:#5b4636;
-    --white:#ffffff;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{
-    min-height:100%;
-    background:var(--bg);
-    color:var(--brown);
-    font-family:'Montserrat', sans-serif;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-    overflow-x:hidden;
-  }
+:root{
+  --bg:#e9e7e2;
+  --red:#c8272a;
+  --red-dark:#a11d1f;
+  --brown:#5b4636;
+  --white:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+  min-height:100%;
+  background:var(--bg);
+  color:var(--brown);
+  font-family:'Montserrat', sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  overflow-x:hidden;
+}
 
+.card{
+  position:relative;
+  width:100%;
+  max-width:1080px;
+  aspect-ratio:4/5;
+  background:var(--bg);
+  border-radius:6px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:48% 52%;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.25);
+}
+
+.photo-side{
+  position:relative;
+  grid-column:1;
+  grid-row:1;
+  height:100%;
+  z-index:2;
+}
+
+.photo-side img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center bottom;
+  display:block;
+}
+
+.text-side{
+  grid-column:2;
+  grid-row:1;
+  position:relative;
+  padding:6% 6% 6% 4%;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.header-block{
+  display:flex;
+  flex-direction:column;
+}
+
+.kicker{
+  font-size:0.85rem;
+  font-weight:600;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--brown);
+  text-align:right;
+  margin-bottom:18px;
+  line-height:1.6;
+}
+
+h1{
+  font-family:'Playfair Display', serif;
+  font-weight:900;
+  font-size:clamp(2.2rem, 8vw, 5.5rem);
+  line-height:0.98;
+  color:var(--brown);
+  text-align:right;
+  letter-spacing:-1px;
+}
+
+.spacer{
+  flex:1 1 auto;
+  min-height:16px;
+}
+
+nav.links{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.btn{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:14px 18px;
+  border-radius:100px;
+  text-decoration:none;
+  font-family:'Poppins', sans-serif;
+  font-weight:700;
+  font-size:0.82rem;
+  letter-spacing:0.2px;
+  text-align:center;
+  color:var(--white);
+  background:linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
+  box-shadow:0 10px 24px -8px rgba(161,29,31,0.55), inset 0 1px 0 rgba(255,255,255,0.25);
+  border:none;
+  transition:transform 0.2s cubic-bezier(.2,.8,.2,1), box-shadow 0.2s ease, filter 0.2s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 16px 30px -8px rgba(161,29,31,0.65), inset 0 1px 0 rgba(255,255,255,0.3);
+  filter:brightness(1.05);
+}
+
+.btn:active{
+  transform:translateY(-1px) scale(0.99);
+}
+
+.btn:focus-visible{
+  outline:2px solid var(--red-dark);
+  outline-offset:3px;
+}
+
+footer{
+  text-align:right;
+  font-size:0.6rem;
+  color:var(--brown);
+  opacity:0.55;
+  margin-top:14px;
+  letter-spacing:0.2px;
+}
+
+/* MOBILE: card acompanha a altura natural da foto, sem estirar para 100vh */
+@media (max-width:760px){
+  body{
+    padding:12px;
+    align-items:flex-start;
+  }
   .card{
-    position:relative;
-    width:100%;
-    max-width:1080px;
-    aspect-ratio:4/5;
-    background:var(--bg);
-    border-radius:6px;
-    overflow:hidden;
-    display:grid;
-    grid-template-columns:48% 52%;
-    box-shadow:0 30px 60px -20px rgba(0,0,0,0.25);
+    aspect-ratio:auto;
+    height:auto;
+    min-height:0;
+    grid-template-columns:42% 58%;
+    align-items:stretch;
   }
-
   .photo-side{
-    position:relative;
-    grid-column:1;
-    grid-row:1;
-    height:100%;
-    z-index:2;
+    height:auto;
   }
-
   .photo-side img{
     width:100%;
-    height:100%;
+    height:auto;
     object-fit:contain;
-    object-position:center bottom;
-    display:block;
+    object-position:top center;
   }
-
   .text-side{
-    grid-column:2;
-    grid-row:1;
-    position:relative;
-    padding:6% 6% 6% 4%;
-    display:flex;
-    flex-direction:column;
-    height:100%;
+    height:auto;
+    padding:5% 5% 4% 3%;
   }
-
-  .header-block{
-    display:flex;
-    flex-direction:column;
-  }
-
   .kicker{
-    font-size:0.85rem;
-    font-weight:600;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:var(--brown);
-    text-align:right;
-    margin-bottom:18px;
-    line-height:1.6;
+    font-size:0.55rem;
+    letter-spacing:2px;
+    margin-bottom:10px;
   }
-
   h1{
-    font-family:'Playfair Display', serif;
-    font-weight:900;
-    font-size:clamp(2.2rem, 8vw, 5.5rem);
-    line-height:0.98;
-    color:var(--brown);
-    text-align:right;
-    letter-spacing:-1px;
+    font-size:clamp(1.5rem, 8vw, 2.4rem);
+    letter-spacing:-0.5px;
   }
-
   .spacer{
-    flex:1 1 auto;
-    min-height:16px;
+    flex:0.55 1 auto;
+    min-height:8px;
   }
-
-  nav.links{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    margin-top:0;
-  }
-
   .btn{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:52px;
-    padding:14px 18px;
-    border-radius:100px;
-    text-decoration:none;
-    font-family:'Poppins', sans-serif;
-    font-weight:700;
-    font-size:0.82rem;
-    letter-spacing:0.2px;
-    text-align:center;
-    color:var(--white);
-    background:linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
-    box-shadow:0 10px 24px -8px rgba(161,29,31,0.55), inset 0 1px 0 rgba(255,255,255,0.25);
-    border:none;
-    transition:transform 0.2s cubic-bezier(.2,.8,.2,1), box-shadow 0.2s ease, filter 0.2s ease;
-    -webkit-tap-highlight-color:transparent;
+    min-height:44px;
+    padding:10px 12px;
+    font-size:0.68rem;
   }
-
-  .btn:hover{
-    transform:translateY(-3px) scale(1.02);
-    box-shadow:0 16px 30px -8px rgba(161,29,31,0.65), inset 0 1px 0 rgba(255,255,255,0.3);
-    filter:brightness(1.05);
+  nav.links{
+    gap:10px;
   }
-
-  .btn:active{
-    transform:translateY(-1px) scale(0.99);
-  }
-
-  .btn:focus-visible{
-    outline:2px solid var(--red-dark);
-    outline-offset:3px;
-  }
-
   footer{
-    text-align:right;
+    font-size:0.5rem;
+    margin-top:10px;
+  }
+}
+
+@media (max-width:420px){
+  .card{
+    grid-template-columns:40% 60%;
+  }
+  h1{
+    font-size:clamp(1.2rem, 7vw, 1.9rem);
+  }
+  .btn{
     font-size:0.6rem;
-    color:var(--brown);
-    opacity:0.55;
-    margin-top:14px;
-    letter-spacing:0.2px;
+    padding:8px 8px;
+    min-height:40px;
   }
-
-  /* MOBILE: foto sem cortes ao lado do texto, botões próximos da cintura */
-  @media (max-width:760px){
-    body{
-      padding:12px;
-      align-items:flex-start;
-    }
-    .card{
-      aspect-ratio:auto;
-      min-height:calc(100vh - 24px);
-      grid-template-columns:42% 58%;
-    }
-    .text-side{
-      padding:5% 5% 4% 3%;
-    }
-    .kicker{
-      font-size:0.55rem;
-      letter-spacing:2px;
-      margin-bottom:10px;
-    }
-    h1{
-      font-size:clamp(1.5rem, 8vw, 2.4rem);
-      letter-spacing:-0.5px;
-    }
-    .spacer{
-      flex:0.55 1 auto;
-      min-height:8px;
-    }
-    .btn{
-      min-height:44px;
-      padding:10px 12px;
-      font-size:0.68rem;
-    }
-    nav.links{
-      gap:10px;
-    }
-    footer{
-      font-size:0.5rem;
-      margin-top:10px;
-    }
-  }
-
-  @media (max-width:420px){
-    .card{
-      grid-template-columns:40% 60%;
-    }
-    h1{
-      font-size:clamp(1.2rem, 7vw, 1.9rem);
-    }
-    .btn{
-      font-size:0.6rem;
-      padding:8px 8px;
-      min-height:40px;
-    }
-  }
+}
 </style>
 </head>
 <body>
 
-<main class="card">
+<div class="card">
   <div class="photo-side">
-    <img src="foto1.png" alt="Foto de Úrsula Varga, modelo, usando vestido vermelho">
+    <img src="SUBSTITUA_PELO_CAMINHO_DA_FOTO.jpg" alt="Úrsula Varga">
   </div>
 
   <div class="text-side">
@@ -224,15 +232,15 @@
 
     <div class="spacer"></div>
 
-    <nav class="links" aria-label="Links de produtos">
-      <a class="btn" href="https://pay.kiwify.com.br/Jg7Pmf3?afid=2bDuehav" target="_blank" rel="noopener noreferrer">Prompts Perfeitos de IA</a>
-      <a class="btn" href="https://pay.kiwify.com.br/pK5t1a4?afid=DlJpejM2" target="_blank" rel="noopener noreferrer">Biblioteca de Prompts</a>
-      <a class="btn" href="https://pay.kiwify.com.br/CHm0ES9?afid=aZJflHLK" target="_blank" rel="noopener noreferrer">Escola da IA (Curso Completo)</a>
+    <nav class="links">
+      <a href="#" class="btn">Prompts Perfeitos de IA</a>
+      <a href="#" class="btn">Biblioteca de Prompts</a>
+      <a href="#" class="btn">Escola da IA (Curso Completo)</a>
     </nav>
 
     <footer>© 2026 Úrsula Varga. Todos os direitos reservados.</footer>
   </div>
-</main>
+</div>
 
 </body>
 </html>
