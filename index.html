@@ -88,7 +88,7 @@
   h1{
     font-family:'Playfair Display', serif;
     font-weight:900;
-    font-size:clamp(3rem, 8vw, 5.5rem);
+    font-size:clamp(2.2rem, 8vw, 5.5rem);
     line-height:0.98;
     color:var(--brown);
     text-align:right;
@@ -97,13 +97,13 @@
 
   .spacer{
     flex:1 1 auto;
-    min-height:24px;
+    min-height:16px;
   }
 
   nav.links{
     display:flex;
     flex-direction:column;
-    gap:16px;
+    gap:14px;
     margin-top:0;
   }
 
@@ -112,15 +112,15 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    min-height:58px;
-    padding:16px 28px;
+    min-height:52px;
+    padding:14px 18px;
     border-radius:100px;
     text-decoration:none;
     font-family:'Poppins', sans-serif;
     font-weight:700;
-    font-size:0.92rem;
-    letter-spacing:0.3px;
-    text-transform:none;
+    font-size:0.82rem;
+    letter-spacing:0.2px;
+    text-align:center;
     color:var(--white);
     background:linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
     box-shadow:0 10px 24px -8px rgba(161,29,31,0.55), inset 0 1px 0 rgba(255,255,255,0.25);
@@ -146,38 +146,62 @@
 
   footer{
     text-align:right;
-    font-size:0.68rem;
+    font-size:0.6rem;
     color:var(--brown);
     opacity:0.55;
-    margin-top:20px;
-    letter-spacing:0.3px;
+    margin-top:14px;
+    letter-spacing:0.2px;
   }
 
+  /* MOBILE: mantém foto ao lado do texto, apenas comprime proporções */
   @media (max-width:760px){
-    .card{
-      grid-template-columns:1fr;
-      grid-template-rows:auto auto;
-      aspect-ratio:auto;
+    body{
+      padding:12px;
+      align-items:flex-start;
     }
-    .photo-side{
-      grid-column:1; grid-row:1;
-      height:340px;
+    .card{
+      aspect-ratio:auto;
+      min-height:calc(100vh - 24px);
+      grid-template-columns:42% 58%;
     }
     .text-side{
-      grid-column:1; grid-row:2;
-      padding:28px 24px 32px;
+      padding:5% 5% 4% 3%;
     }
-    .kicker, h1{
-      text-align:center;
+    .kicker{
+      font-size:0.55rem;
+      letter-spacing:2px;
+      margin-bottom:10px;
     }
     h1{
-      font-size:clamp(2.6rem, 12vw, 3.6rem);
-      margin-bottom:16px;
+      font-size:clamp(1.5rem, 8vw, 2.4rem);
+      letter-spacing:-0.5px;
     }
-    .spacer{
-      display:none;
+    .btn{
+      min-height:44px;
+      padding:10px 12px;
+      font-size:0.68rem;
     }
-    footer{text-align:center;}
+    nav.links{
+      gap:10px;
+    }
+    footer{
+      font-size:0.5rem;
+      margin-top:10px;
+    }
+  }
+
+  @media (max-width:420px){
+    .card{
+      grid-template-columns:40% 60%;
+    }
+    h1{
+      font-size:clamp(1.2rem, 7vw, 1.9rem);
+    }
+    .btn{
+      font-size:0.6rem;
+      padding:8px 8px;
+      min-height:40px;
+    }
   }
 </style>
 </head>
