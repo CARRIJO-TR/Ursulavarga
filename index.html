@@ -16,15 +16,19 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{
-  min-height:100%;
+  height:100%;
   background:var(--bg);
   color:var(--brown);
   font-family:'Montserrat', sans-serif;
+  overflow-x:hidden;
+}
+
+body{
   display:flex;
   align-items:center;
   justify-content:center;
+  min-height:100vh;
   padding:24px;
-  overflow-x:hidden;
 }
 
 .card{
@@ -42,8 +46,6 @@ html,body{
 
 .photo-side{
   position:relative;
-  grid-column:1;
-  grid-row:1;
   height:100%;
   z-index:2;
 }
@@ -51,14 +53,12 @@ html,body{
 .photo-side img{
   width:100%;
   height:100%;
-  object-fit:contain;
-  object-position:center bottom;
+  object-fit:cover;
+  object-position:top center;
   display:block;
 }
 
 .text-side{
-  grid-column:2;
-  grid-row:1;
   position:relative;
   padding:6% 6% 6% 4%;
   display:flex;
@@ -94,7 +94,6 @@ h1{
 
 .spacer{
   flex:1 1 auto;
-  min-height:16px;
 }
 
 nav.links{
@@ -123,6 +122,7 @@ nav.links{
   border:none;
   transition:transform 0.2s cubic-bezier(.2,.8,.2,1), box-shadow 0.2s ease, filter 0.2s ease;
   -webkit-tap-highlight-color:transparent;
+  cursor:pointer;
 }
 
 .btn:hover{
@@ -149,52 +149,47 @@ footer{
   letter-spacing:0.2px;
 }
 
-/* MOBILE: card acompanha a altura natural da foto, sem estirar para 100vh */
+/* MOBILE: card ocupa a tela cheia, foto preenche toda a altura */
 @media (max-width:760px){
   body{
-    padding:12px;
-    align-items:flex-start;
+    padding:0;
+    align-items:stretch;
+    justify-content:stretch;
+    min-height:100vh;
   }
   .card{
+    width:100vw;
+    max-width:100vw;
+    height:100vh;
     aspect-ratio:auto;
-    height:auto;
-    min-height:0;
+    border-radius:0;
     grid-template-columns:42% 58%;
-    align-items:stretch;
-  }
-  .photo-side{
-    height:auto;
   }
   .photo-side img{
     width:100%;
-    height:auto;
-    object-fit:contain;
+    height:100%;
+    object-fit:cover;
     object-position:top center;
   }
   .text-side{
-    height:auto;
-    padding:5% 5% 4% 3%;
+    padding:6% 5% 5% 3%;
   }
   .kicker{
-    font-size:0.55rem;
+    font-size:0.6rem;
     letter-spacing:2px;
     margin-bottom:10px;
   }
   h1{
-    font-size:clamp(1.5rem, 8vw, 2.4rem);
+    font-size:clamp(1.6rem, 8vw, 2.6rem);
     letter-spacing:-0.5px;
   }
-  .spacer{
-    flex:0.55 1 auto;
-    min-height:8px;
+  nav.links{
+    gap:12px;
   }
   .btn{
-    min-height:44px;
+    min-height:46px;
     padding:10px 12px;
-    font-size:0.68rem;
-  }
-  nav.links{
-    gap:10px;
+    font-size:0.7rem;
   }
   footer{
     font-size:0.5rem;
@@ -207,12 +202,12 @@ footer{
     grid-template-columns:40% 60%;
   }
   h1{
-    font-size:clamp(1.2rem, 7vw, 1.9rem);
+    font-size:clamp(1.3rem, 7vw, 2rem);
   }
   .btn{
-    font-size:0.6rem;
+    font-size:0.62rem;
     padding:8px 8px;
-    min-height:40px;
+    min-height:42px;
   }
 }
 </style>
@@ -221,7 +216,7 @@ footer{
 
 <div class="card">
   <div class="photo-side">
-    <img src="foto1.png" alt="Úrsula Varga">
+    <img src="SUBSTITUA_PELO_CAMINHO_DA_FOTO.jpg" alt="Úrsula Varga">
   </div>
 
   <div class="text-side">
@@ -233,9 +228,9 @@ footer{
     <div class="spacer"></div>
 
     <nav class="links">
-      <a href="#" class="btn">Prompts Perfeitos de IA</a>
-      <a href="#" class="btn">Biblioteca de Prompts</a>
-      <a href="#" class="btn">Escola da IA (Curso Completo)</a>
+      <a href="https://pay.kiwify.com.br/Jg7Pmf3?afid=2bDuehav" class="btn" target="_blank" rel="noopener">Prompts Perfeitos de IA</a>
+      <a href="https://pay.kiwify.com.br/pK5t1a4?afid=DlJpejM2" class="btn" target="_blank" rel="noopener">Biblioteca de Prompts</a>
+      <a href="https://pay.kiwify.com.br/CHm0ES9?afid=aZJflHLK" class="btn" target="_blank" rel="noopener">Escola da IA (Curso Completo)</a>
     </nav>
 
     <footer>© 2026 Úrsula Varga. Todos os direitos reservados.</footer>
